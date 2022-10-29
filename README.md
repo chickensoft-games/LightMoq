@@ -10,6 +10,41 @@ I didn't want to update hundreds of tests, and I like Moq's syntax. So I created
 
 ## Usage
 
+Just make a mock (exactly how you would with `LightMoq.Generator`) and call `Setup` on it to stub methods. You can also use `VerifyAll`, which will verify all stubbed methods are called at least once, in any order.
+
+```csharp
+namespace LightMoqTests;
+
+using System;
+using LightMock.Generator;
+using LightMoq;
+using Shouldly;
+using Xunit;
+
+internal interface IMyObject {
+  void DoSomething();
+  string SaySomething();
+}
+
+public class LightMoqTest {
+  [Fact]
+  public void TestObjectIsUsable() {
+    var myObject = new Mock<IMyObject>();
+
+    var speech = "Hello World!";
+
+    myObject.Setup(obj => obj.DoSomething());
+    myObject.Setup(obj => obj.SaySomething()).Returns(speech);
+
+    myObject.Object.DoSomething();
+    myObject.Object.SaySomething().ShouldBe(speech);
+
+    // Make sure all stubbed methods were called at least once, in any order.
+    myObject.VerifyAll();
+  }
+}
+```
+
 <!-- Credits -->
 [Godot]: https://godotengine.org
 [LightMock.Generator]: https://github.com/anton-yashin/LightMock.Generator

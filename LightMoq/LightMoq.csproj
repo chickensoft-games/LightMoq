@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <LanguageVersion>10.0</LanguageVersion>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <Nullable>enable</Nullable>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+
+    <Title>LightMoq</Title>
+    <Description>Extensions for LightMock.Generator to make it more like Moq.</Description>
+    <Copyright>© 2022 Chickensoft Games</Copyright>
+    <Company>Chickensoft</Company>
+
+    <PackageId>LightMoq</PackageId>
+    <PackageVersion>0.1.0</PackageVersion>
+    <PackageReleaseNotes>LightMoq release.</PackageReleaseNotes>
+    <PackageTags>Test;Testing;Utility;Utilities</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageProjectUrl>git@github.com:chickensoft-games/LightMoq.git</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/chickensoft-games/LightMoq</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+    <PackageReference Include="LightMock.Generator" Version="1.1.2" />
+  </ItemGroup>
+
+</Project>
